@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 {{block.super}}
-<!--displaying all images-->
-<div class="container mt-3">
+<div class="container mt-4">
 <div class="row">
 <div class="card-columns">
     {%for image in all_images%}
     <div class="card">
-        <!-- Image trigger modal -->
         <img src="{{image.image.url}}" height="300vh" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
-        <!-- Modal -->
         <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
