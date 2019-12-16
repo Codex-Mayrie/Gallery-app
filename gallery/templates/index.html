@@ -1,35 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<nav class="navbar navbar-inverse bg-light navbar-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">MyGallery</a>
-      </div>
+{% extends 'base.html' %}
+{% block content %}
+{{block.super}}
+<!--displaying all images-->
+<div class="container mt-3">
+<div class="row">
+<div class="card-columns">
+    {%for image in all_images%}
+    <div class="card">
+        <!-- Image trigger modal -->
+        <img src="{{image.image.url}}" height="300vh" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
+        <!-- Modal -->
+        <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <h5 class="modal-title text-center" id="exampleModal3Label">{{image.image_name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                <div class="modal-header">
+                    <img src="{{image.image.url}}"  class="card-img-top" alt="{{image.image_name}}">
+                </div>
+         <div class="modal-body">
+             <h5>{{image.image_description}}</h5>
+             <p class="text-muted">
+               Category: ~{{image.category}}~
+                <br>Location: ~{{image.img_location}}~</p>
+            <input type="text" id="input" value="https://me-gallery.herokuapp.com{{image.image.url}}">
 
-       {% for location in locations%}
-      <a href="{% url 'display_location' location.id%}" class="drop-down">
-        <p>{{location.location}}</p>
-      </a>
-      {% endfor %}
-
-    <div class="col-sm-5 col-md-4 navbar-right">
-      <form class="navbar-form" role="search" action="{% url 'search_results' %}">
-        <div class=" form-inline">
-          <input type="text" class="form-control" placeholder="Search by Category" name="category">
-          <div class="input-group">
-            <button class="btn btn-default" type="submit">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
         </div>
-      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
-</nav>
-</body>
-</html>
+</div>
+        {% empty %}
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}
