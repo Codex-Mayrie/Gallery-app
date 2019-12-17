@@ -27,16 +27,16 @@ def display_location(request,id):
 
 def search_results(request):
   locations = Location.get_location()
-  if 'category' in request.GET and request.GET["category"]:
-    search_term = request.GET.get("category")
+  if 'results' in request.GET and request.GET["results"]:
+    search_term = request.GET.get("results")
     searched_images = Image.search_by_category(search_term)
     message = f"{search_term}"
-    parameters = {
-      "message": message,
-      "images": images,
-      "locations": locations,
-    }
-    return render(request, 'search.html',parameters)
+    # parameters = {
+    #   "message": message,
+    #   "images": searched_images,
+    #   "locations": locations,
+    # }
+    return render(request, 'search.html', { "locations":locations, "message":message, "images":searched_images})
   else:
       message = "Search item not found",
-      return render(request, "search.html", {"message": message, "locations": locations})
+      return render(request, "search.html", {"message":message} )

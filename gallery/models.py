@@ -45,6 +45,7 @@ class Image(models.Model):
   image_description = models.TextField()
   img_location = models.ForeignKey(Location)
   category = models.ForeignKey(Category)
+  image_date = models.DateTimeField(auto_now_add=True)
   
   def __str__(self):
     return self.image_name
