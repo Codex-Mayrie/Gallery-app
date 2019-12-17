@@ -33,5 +33,5 @@ def search_results(request):
     message = f"{search_term}"
     return render(request, 'search.html', { "locations":locations, "message":message, "images":searched_images})
   else:
-      message = "Search item not found",
+      message = "Sorry! We cannot find the item that you are searching for",
       return render(request, "search.html", {"message":message} )
