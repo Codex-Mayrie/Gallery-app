@@ -1,4 +1,11 @@
+body{
+scroll-behavior: smooth;
+text-decoration: none;
+
+}
+
 h1
 {
   color:blue;
+  font-size: 35px;
 }
