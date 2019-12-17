@@ -31,11 +31,6 @@ def search_results(request):
     search_term = request.GET.get("results")
     searched_images = Image.search_by_category(search_term)
     message = f"{search_term}"
-    # parameters = {
-    #   "message": message,
-    #   "images": searched_images,
-    #   "locations": locations,
-    # }
     return render(request, 'search.html', { "locations":locations, "message":message, "images":searched_images})
   else:
       message = "Search item not found",
