@@ -12,12 +12,12 @@
         </div>
         <div class="card-body">
                 
-                <img src="{{image.image.url}}" class="img-responsive img-thumbnail" alt="Image" data-toggle="modal" data-target="#im{{image.id}}">
+                <img src="{{image.image.url}}" class="img-responsive img-thumbnail" alt="Image" data-toggle="modal" data-target="#image{{image.id}}">
         </div>
     </div>
 </div> 
         <!-- modal -->
-        <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+        <div class="modal fade" id="image{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <h5 class="modal-title text-center" id="exampleModal3Label">{{image.image_name}}</h5>
@@ -32,12 +32,11 @@
              <p class="text-muted">
                Category: ~{{image.category}}~
                 <br>Location: ~{{image.img_location}}~</p>
-            <input type="text" id="input" value="https://me-gallery.herokuapp.com{{image.image.url}}">
 
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
