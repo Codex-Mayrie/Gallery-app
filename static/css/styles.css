@@ -2,16 +2,26 @@ body{
   scroll-behavior: smooth;
   text-decoration: none;
   background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4NRlyrdOm3mImQsDeb8aoClab9ZDiNaBVFxhevmtku_r-rgrkww&s");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1
 {
   color:blue;
   font-size: 35px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .btn{
   color:blue;
   background-color: transparent;
 
+}
+
+.navbar-brand{
+  color:whitesmoke;
+  font-size: 40px;
+  font-weight: bolder;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
