@@ -10,12 +10,6 @@
       <a class="navbar-brand" href="/">MyGallery</a>
       </div>
 
-       {% for location in locations%}
-      <a href="{% url 'display_location' location.id%}" class="drop-down">
-        <p>{{location.location}}</p>
-      </a>
-      {% endfor %}
-
     <div class="col-sm-5 col-md-4 navbar-right">
       <form class="navbar-form" role="search" action="{% url 'search_results' %}">
         <div class=" form-inline">
